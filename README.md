@@ -7,3 +7,6 @@ Como rodar este projeto no seu ambiente
 
 3-) baixar as depêndencias do projeto: `pip install -r requirements.txt`
 
+<p align="center">
+  <img src="ezgif_site.gif">
+</p>
