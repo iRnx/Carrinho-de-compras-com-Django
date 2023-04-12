@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}Detalhe do produto{% endblock %}
+
+{% block 'content' %}
+
+    {% include 'partials/messages.html' %}
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="text-center">Detalhes do produto</h1>
+            <div class="col-4">
+                <form class="pb-5" action="{% url 'adicionar_carrinho' %}" id="form-add-to-cart">
+    
+                    <div class="card p-0" style="width: 18rem;">
+                        <img src="{{ produto.imagem.thumbnail.url }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ produto.nome }}</h5>
+                        <p class="card-text">
+                                <select class="form-select form-select-lg mb-3" name="vid" aria-label=".form-select-lg example">
+                                    {% for variacao in produto.variacao_set.all %}
+                                        <option value="{{ variacao.id }}">{{ variacao.nome }}</option>
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        <button class="btn btn-danger">Adicionar ao carrinho</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+

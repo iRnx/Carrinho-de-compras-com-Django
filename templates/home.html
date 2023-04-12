@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+
+    <div class="container">
+        <div class="row justify-content-evenly">
+          <h1>Home</h1>
+
+          {% for produto in produtos %}
+      
+          <div class="card p-0" style="width: 18rem;">
+              <img src="{{ produto.imagem.thumbnail.url }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ produto }}</h5>
+                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                <a href="{% url 'detalhe_produto' produto.id %}" class="btn btn-primary">Ver produto</a>
+              </div>
+          </div>
+      
+          {% endfor %}
+        </div>
+      
+    </div>
+    
+{% endblock %}
